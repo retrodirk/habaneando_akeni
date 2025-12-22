@@ -14,6 +14,7 @@ use App\Enum\SubscriptionTypeEnum;
 use App\Enum\PaymentStatusEnum;
 use App\Enum\PaymentMethodEnum;
 use Stripe\Stripe;
+use Carbon\Carbon;
 
 class CoursesShow extends Component
 {
@@ -121,12 +122,26 @@ class CoursesShow extends Component
             'customer_email' => $this->customer->email,
             'mode' => 'payment',
             'locale' => 'de',
+            'payment_intent_data' => [
+                'description' => $this->getPaymentDescription(),
+            ],
             // 'success_url' => $appUrl . '/checkout/course/success?session_id={CHECKOUT_SESSION_ID}',
             'success_url' => $appUrl . '/checkout/course/success/{CHECKOUT_SESSION_ID}',
             'cancel_url' => $appUrl,
         ]);
 
         return $checkout_session->url;
+    }
+
+    private function getPaymentDescription(): string
+    {
+        if (!$this->course->start_date) {
+            return $this->course->name;
+        }
+
+        $date = Carbon::parse($this->course->start_date)->format('d.m.Y');
+
+        return $this->course->name . ' - ' . $date;
     }
     private function createSubscription($customer, $numberOfMen, $numberOfWomen, $amount)
     {
