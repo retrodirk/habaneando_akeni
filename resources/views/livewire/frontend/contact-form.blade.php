@@ -46,7 +46,7 @@
                             </svg>
                         </dt>
                         <dd>
-                            <a class="hover:text-neutral-900" href="tel:+491623003235">+49 162 3003 235</a>
+                            <a class="hover:text-neutral-900" href="tel:+4917682201935">+49 176 8220 1935</a>
                         </dd>
                     </div>
                    

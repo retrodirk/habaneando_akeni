@@ -14,7 +14,7 @@
                 oder per Anruf. Alternativ kannst du auch eine Nachricht oder E-Mail senden!</p> --}}
             <p>Email: <a href="mailto:info@habaneando.com" class="text-red-700 hover:underline">info@habaneando.com</a>
             </p>
-            <p>Telefon: <a href="tel:+491623003235" class="text-red-700 hover:underline">+49 162 3003 235</a></p>
+            <p>Telefon: <a href="tel:+4917682201935" class="text-red-700 hover:underline">+49 176 8220 1935</a></p>
             <p>WhatsApp: <a href="https://wa.me/4917682201935" target="_blank"
                     class="text-red-700 hover:underline">WhatsApp (Wir
                     antworten sehr schnell)</a></p>
