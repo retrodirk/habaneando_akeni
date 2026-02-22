@@ -18,7 +18,7 @@
                             'styles' => $member->styles,
                             'instagram' => $member->instagram ?? null,
                             'facebook' => $member->facebook ?? null,
-                            'bio' => $member->descroption,
+                            'bio' => $member->description,
                         ]) }})">
                         <img class="aspect-[3/2] w-full rounded-2xl object-cover"
                             src="{{ env('DO_CDN') . '/' . $member->thumbnail }}" alt="{{ $member->full_name }}">
@@ -26,6 +26,19 @@
                             {{ $member->full_name }}
                         </h3>
                         <p class="text-sm leading-6 text-neutral-600">{{ $member->styles }}</p>
+                        <a href="#" 
+                           @click.prevent="openModal({{ json_encode([
+                               'id' => $member->id,
+                               'full_name' => $member->full_name,
+                               'thumbnail' => env('DO_CDN') . '/' . $member->thumbnail,
+                               'styles' => $member->styles,
+                               'instagram' => $member->instagram ?? null,
+                               'facebook' => $member->facebook ?? null,
+                               'bio' => $member->description,
+                           ]) }})"
+                           class="mt-3 inline-block text-sm font-medium text-black-600 hover:text-blue-800 transition-colors">
+                            Mehr →
+                        </a>
                         <ul role="list" class="mt-6 flex justify-center gap-x-6">
                             @if ($member->instagram)
                                 <li>
